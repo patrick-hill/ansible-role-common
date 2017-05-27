@@ -1,0 +1,13 @@
+---
+# Ubuntu vars
+common_install_os_utils: false
+common_install_filesys_utils: false
+common_install_archive_utils: false
+common_install_common_utils: false
+common_install_media: false
+common_install_dev_utils: false
+common_install_hw_apps: false
+common_install_av: false
+
+# CentOS vars
+selinux_enabled: false
