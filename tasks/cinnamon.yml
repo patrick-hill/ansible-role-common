@@ -1,4 +1,7 @@
 ---
+- name: Install conf-cli for Cinnamon Settings
+  apt: pkg=dconf-cli state=installed
+
 - name: Stat Keyboard conf file
   stat: path={{ backup_dir_root }}/cinnamon/keybindings_backup.conf"
   register: kb_conf
