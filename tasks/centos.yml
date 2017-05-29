@@ -4,7 +4,7 @@
     dest:   /etc/selinux/config
     regexp: "^SELINUX=.*"
     line:   "SELINUX=disabled"
-  sudo: yes 
+  become: yes 
   when: selinux_enabled == false
 
 - name: EPEL Repo check
@@ -36,4 +36,4 @@
     - zip
     - unzip
     - python-pip
-  sudo: yes
+  become: yes
