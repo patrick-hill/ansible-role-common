@@ -22,8 +22,13 @@
   failed_when: rpm_check.rc > 1
 
 - name: RPMFusion Repo
-  yum:  name=http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
-        state=present update_cache=yes
+  yum:  name={{ item }}
+        state=present
+        update_cache=yes
+        validate_certs=false
+  with_items:
+    - https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+    - https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm
   when: rpm_check.rc == 1
 
 - name: Install common packages

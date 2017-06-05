@@ -80,3 +80,21 @@
     - clamav-freshclam
     - clamtk
   when: common_install_av
+
+- name: Install VirtualBox
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - virtualbox
+    - virtualbox-guest-additions-iso
+    - virtualbox-qt
+  when: common_install_virtualization
+
+# Needs more research/testing: http://www.bchemnet.com/suldr/index.html
+- name: Install Printer/Scanners
+  apt:  pkg={{ item }} state=installed
+  with_items:
+    - sane
+    - sane-utils
+    - libsane-extras
+    - xsane
+  when: common_install_printer_scanners

@@ -8,6 +8,8 @@ common_install_media: false
 common_install_dev_utils: false
 common_install_hw_apps: false
 common_install_av: false
+common_install_virtualization: false
+common_install_printer_scanners: false
 
 # CentOS vars
 selinux_enabled: false
