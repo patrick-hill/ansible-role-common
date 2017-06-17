@@ -11,15 +11,19 @@
   command: yum list installed epel-release
   register: epel_check
   failed_when: epel_check.rc > 1
+  when: common_centos_repo_epel_enabled
 
 - name: Install EPEL repo
   yum:  name=epel-release state=latest update_cache=yes
-  when: epel_check.rc == 1
+  when:
+    - common_centos_repo_epel_enabled
+    - epel_check.rc == 1
 
 - name: RPMFusion Repo check
   command: yum list installed rpmforge-release
   register: rpm_check
   failed_when: rpm_check.rc > 1
+  when: common_centos_repo_rpmfusion_enabled
 
 - name: RPMFusion Repo
   yum:  name={{ item }}
@@ -29,7 +33,9 @@
   with_items:
     - https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
     - https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm
-  when: rpm_check.rc == 1
+  when:
+    - common_centos_repo_rpmfusion_enabled
+    - rpm_check.rc == 1
 
 - name: Install common packages
   yum:  pkg={{ item }} state=installed update_cache=yes
