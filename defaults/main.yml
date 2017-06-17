@@ -12,4 +12,5 @@ common_install_virtualization: false
 common_install_printer_scanners: false
 
 # CentOS vars
-selinux_enabled: false
+common_centos_selinux_enabled: false
+common_centos_ipv6_enabled: false
