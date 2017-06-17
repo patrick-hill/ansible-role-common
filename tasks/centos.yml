@@ -49,12 +49,12 @@
     - python-pip
   become: yes
 
-  - name: Disable IPV6
-    lineinfile:
-      path: /etc/sysctl.conf
-      line: "net.ipv6.conf.all.disable_ipv6 = 1"
-      regexp: "^net.ipv6.conf.all.disable_ipv6*"
-      create: yes
-      insertafter: EOF
-    become: yes
-    when: not common_centos_ipv6_enabled
+- name: Disable IPV6
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: "net.ipv6.conf.all.disable_ipv6 = 1"
+    regexp: "^net.ipv6.conf.all.disable_ipv6*"
+    create: yes
+    insertafter: EOF
+  become: yes
+  when: not common_centos_ipv6_enabled
