@@ -1,0 +1,5 @@
+---
+
+- name: Upgrade pip
+  shell: pip install --upgrade pip
+  become: true

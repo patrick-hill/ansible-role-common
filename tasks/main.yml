@@ -11,6 +11,9 @@
   include: "centos.yml"
   when: ansible_distribution == 'CentOS'
 
+- name: All Common
+  include: "all.yml"
+  
 # - name: Cinnamon Common
 #   include: "cinnamon.yml"
 #   when: ansible_distribution == 'Linuxmint'
