@@ -20,7 +20,7 @@
     - epel_check.rc == 1
 
 - name: RPMFusion Repo check
-  command: yum list installed rpmforge-release
+  command: yum list installed rpmfusion*
   register: rpm_check
   failed_when: rpm_check.rc > 1
   when: common_centos_repo_rpmfusion_enabled
