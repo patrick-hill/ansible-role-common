@@ -9,6 +9,8 @@
 
 - name: EPEL Repo check
   command: yum list installed epel-release
+  args:
+    warn: false
   register: epel_check
   failed_when: epel_check.rc > 1
   when: common_centos_repo_epel_enabled
@@ -21,6 +23,8 @@
 
 - name: RPMFusion Repo check
   command: yum list installed rpmfusion*
+  args:
+    warn: false
   register: rpm_check
   failed_when: rpm_check.rc > 1
   when: common_centos_repo_rpmfusion_enabled
